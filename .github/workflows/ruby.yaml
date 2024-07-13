@@ -1,0 +1,20 @@
+name: Ruby Test
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4 # https://github.com/actions/checkout
+                                # アクション一覧 https://github.com/actions/
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1 # https://github.com/ruby/setup-ruby
+                               # https://github.com/actions/setup-ruby はアーカイブされている
+      with:
+        ruby-version: '3.3'
+
+    - name: Run
+      run: ruby main.rb
